@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="img/icon.png">
+    <link rel="icon" href="img/icon2.png">
     <title>Music</title>
 </head>
 <body>
+    <?php
+    session_start();
+   if($_SESSION['id']==""){
+    header("location:login-htm.php");
+   }
+
+    ?>
     <!-- <header> -->
         <div class="menu_side">
             <h1>PlayList</h1>
@@ -24,7 +31,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="1"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="1"></i>
                 </li>
 
                 <li class="songitem">
@@ -33,7 +40,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="2"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="2"></i>
                 </li>
 
                 <li class="songitem">
@@ -42,7 +49,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="3"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="3"></i>
                 </li>
 
                 <li class="songitem">
@@ -51,7 +58,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="4"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="4"></i>
                 </li>
 
                 <li class="songitem">
@@ -60,7 +67,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="5"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="5"></i>
                 </li>
 
                 <li class="songitem">
@@ -69,7 +76,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="6"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="6"></i>
                 </li>
 
                 <li class="songitem">
@@ -78,7 +85,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="7"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="7"></i>
                 </li>
                 
                 <li class="songitem">
@@ -87,7 +94,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="8"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="8"></i>
                 </li>
 
                 <li class="songitem">
@@ -96,7 +103,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="9"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="9"></i>
                 </li>
                 <li class="songitem">
                     <span>10</span>
@@ -104,7 +111,7 @@
                     <h5>Snap <br>
                         <div class="subtitle">Rona linn</div>
                     </h5>
-                    <i class="bi play bi-play-circle-fill" id="9"></i>
+                    <i class="bi playlistplay bi-play-circle-fill" id="9"></i>
                 </li>
 
             </div>
@@ -118,16 +125,29 @@
                     <li>MY PLAYLIST</li>
                     <li>RADIO</li>
                 </ul>
-                <div class="search">
+                <div class="search" style="display: flex; justify-content: right;">
                     <i class="bi bi-search"></i>
                     <input type="text" placeholder="Search songs..">
+                    <div class="logout">
+                        <a href="logout.php"><i class="bi bi-box-arrow-right" style="margin-left: 30px; color: white; padding: 1px 2px 1px 6px;"></i></a>
+                    </div>
+                    <!-- <div class="search_result">
+                        <a href="" class="card">
+                            <img src="img/1.jpg" alt="">
+                            <div class="container">
+                                Snap
+                                <div class="subtitle">Rona linn</div>
+                            </div>
+                        </a>
+                        
+                    </div> -->
                 </div>
             </nav>
             
             <div class="containter">
                     <h1>XXXTENTACION - HOPE</h1>
                     <div class="buttons">
-                        <button>PLAY</button>
+                        <button id="container_play">PLAY</button>
                         <button>FOLLOW</button>
                     </div>
             </div>
@@ -145,7 +165,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="11"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="11"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -155,7 +175,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="12"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="12"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -165,7 +185,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="13"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="13"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -175,7 +195,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="14"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="14"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -185,7 +205,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="15"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="15"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -195,7 +215,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="16"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="16"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -205,7 +225,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="17"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="17"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -215,7 +235,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="18"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="18"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -225,7 +245,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="19"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="19"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -235,7 +255,7 @@
                     <li class="songitem">
                         <div class="img_play">
                             <img src="img/summertime.jpg" alt="">
-                            <i class="bi play bi-play-circle-fill" id="20"></i>
+                            <i class="bi playlistplay bi-play-circle-fill" id="20"></i>
                         </div>
                         <h5>Summertime Sadness<br>
                             <div class="subtitle">Lana Del Rey</div>
@@ -290,7 +310,7 @@
         <div class="master_play flex">
             
             
-            <div class="wave">
+            <div class="wave" id="wave">
                 <div class="wave1"></div>
                 <div class="wave1"></div>
                 <div class="wave1"></div>
@@ -302,11 +322,11 @@
             </h5>
 
             <div class="icon">
-                <i class="bi shuffle bi-music-note-beamed"></i>
-                <i class="bi bi-skip-start-fill"></i>
-                <i class="bi bi-play-fill"></i>
-                <i class="bi bi-skip-end-fill"></i>
-                <i class="bi bi-cloud-arrow-down-fill" id="download_music"></i>
+                <!-- <i class="bi shuffle bi-music-note-beamed">next</i> -->
+                <i class="bi bi-skip-start-fill" id="back"></i>
+                <i class="bi bi-play-fill" id="masterplay"></i>
+                <i class="bi bi-skip-end-fill" id="next"></i>
+                <a href="" download id="download_music"><i class="bi bi-cloud-arrow-down-fill" ></i></a>
             </div>
             
             
@@ -324,10 +344,10 @@
 
 
             <div class="vol">
-                <i class="bi bi-volume-down-fill" id="vol_icon"></i>
+                <i class="bi bi-volume-up-fill" id="vol_icon"></i>
                 <input type="range" min="0" max="100" id="vol">
                 <div class="vol_bar"></div>
-                <div class="dot" id="vol_dot"></div>
+                <div class="dot1" id="vol_dot"></div>
             </div>
         
         </div>

@@ -238,7 +238,7 @@ body{
     height: 35px;
 }
  .master_play h5{
-    width: 130px;
+    width: 7vw;
     /* border: 1px solid white; */
     margin-left: 15px;
     color: #fff;
@@ -295,8 +295,8 @@ body{
 
 }
 
- .master_play .icon .bi:nth-child(3) {
-    border: 1px solid rgb(105, 105, 105, .1);
+ .master_play .icon .bi:nth-child(2) {
+    border: 1px solid rgba(214, 207, 207, 0.1);
     border-radius: 50%;
     padding: 1px 5px 0px 6px;
     margin: 0px 4px;
@@ -314,18 +314,20 @@ body{
     margin: 0px 0px 0px 20px;
 }
 
+  /* styling to the master play bar  */
+
  .master_play .bar{
     position: relative;
     width: 43%;
     height: 2px;
-    background-color: rgb(105, 105, 170, .1);
+    background-color: rgb(255 255 255 / 10%);
     margin: 0px 15px 0px 10px;
 }
 
  .master_play .bar .bar2{
     position: absolute;
     background: #36e2ec;
-    width: 50%;
+    width: 0%;
     height: 100%;
     top: 0;
     transition: 1s linear;
@@ -367,7 +369,7 @@ body{
     width: 100px;
     position: relative;
     height: 2px;
-    background: rgb(105, 105, 170, .1);
+    background: rgb(255 255 255 / 10%);
     margin-left: 50px;
 }
  .master_play .vol .bi{
@@ -390,24 +392,24 @@ body{
  .master_play .vol .vol_bar{
     position: absolute;
     background: #36e2ec;
-    width: 50%;
+    width: 100%;
     height: 100%;
     top: 0;
     transition: 1s linear;
 }
 
- .master_play .vol .dot{
+ .master_play .vol .dot1{
     position: absolute;
     background: #36e2ec;
     width: 5px;
     height: 5px;
     border-radius: 50%;
-    left: 0%;
+    left: 100%;
     top: -1.5px;
     transition: 1s linear;
 }
 
- .master_play .vol .dot::before{
+ .master_play .vol .dot1::before{
     content: '';
     position: absolute;
     width: 15px;
@@ -475,7 +477,7 @@ body{
 
  .song_side nav .search{
     position: relative;
-    width: 40%;
+    width: 35vw;
     padding: 1px 10px ;
     border-radius: 20px;
     /* border: 1px solid white; */
@@ -491,6 +493,55 @@ body{
     border-radius: 20px;
     backdrop-filter: blur(5px);
     z-index: -1;
+}
+ .song_side nav .search .search_result{
+    /* border: 1px solid white; */
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    border-radius: 10px;
+    margin-top: 10px;
+    overflow: auto;
+    
+}
+ .song_side nav .search .search_result::-webkit-scrollbar{
+    display: none;
+}
+
+.song_side nav .search .search_result .card{
+    width: 100%;
+    min-height: 45px;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 10px;
+    background-color: rgb(184, 184, 184, .1);
+    margin-bottom: 5px;
+    text-decoration: none;
+}
+
+.song_side nav .search .search_result img{
+    width: 35px;
+    height: 35px;
+    border-radius: 10px;
+    margin-left: 5px;
+}
+.song_side nav .search .search_result .card .cont{
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    margin-left: 10px;
+    left: 0;
+    color: white;
+    font-size: 13px;
+    /* border: 1px solid white; */
+    font-weight: 500;
+}
+.song_side nav .search .search_result .card .cont .subtitle{
+    font-size: 10px;
+    color: #8f94a8;
+    font-weight: 400;
 }
 
  .song_side nav .search .bi{
